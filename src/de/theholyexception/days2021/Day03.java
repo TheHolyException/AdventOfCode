@@ -1,27 +1,24 @@
-package de.theholyexception.days;
+package de.theholyexception.days2021;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day03 {
+import de.theholyexception.DayTemplate;
+
+public class Day03 extends DayTemplate {
 	
-	private File file;
-	
-	public Day03(File file) throws Exception {
-		this.file = file;
-		first();
-		second();
+	public Day03() throws Exception {
+		super(2021, "03");
 	}
-	
+
+	@Override
 	public void first() throws Exception {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
 		
 		String l = null;
-		int result = 0;		
 		
 		List<String> rows = new ArrayList<>();
 		while((l = reader.readLine()) != null) rows.add(l);
@@ -37,16 +34,17 @@ public class Day03 {
 		int gamma = Integer.parseInt(mcb.toString(), 2);
 		int epsilon = (gamma ^ ((1 << rows.get(0).length()) -1));
 		result = gamma * epsilon;
-		
-		System.out.println("Day03 first result: " + result);
+
+		reader.close();
+		super.first();
 		//1071734
 	}
-	
+
+	@Override
 	public void second() throws Exception {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
 		
 		String l = null;
-		int result = 0;
 		
 		List<String> rows = new ArrayList<>();
 		while((l = reader.readLine()) != null) rows.add(l);
@@ -55,7 +53,9 @@ public class Day03 {
 		int co2Scrubber = Integer.parseInt(getCommonBits(true, new ArrayList<>(rows)), 2);
 		
 		result = oxygenGenerator * co2Scrubber;		
-		System.out.println("Day03 second result: " + result);
+
+		reader.close();
+		super.second();
 		//6124992
 	}
 	

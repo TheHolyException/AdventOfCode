@@ -1,21 +1,18 @@
-package de.theholyexception.days;
+package de.theholyexception.days2021;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.net.URL;
 
-public class Day01 {
+import de.theholyexception.DayTemplate;
 
-	private File file;
+public class Day01 extends DayTemplate {
 	
-	public Day01(File file) throws Exception {
-		this.file = file;
-		first();
-		second();
+	public Day01() throws Exception {
+		super(2021, "01");
 	}
 	
+	@Override
 	public void first() throws Exception {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
 		
@@ -29,10 +26,15 @@ public class Day01 {
 			}
 			prev = curr;
 		}
-		System.out.println("Day01 first Increments: " + increments);
+//		System.out.println("Day01 first Increments: " + increments);
 		//1228
+
+		result = increments;
+		reader.close();
+		super.first();
 	}
 	
+	@Override
 	public void second() throws Exception {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
 
@@ -59,10 +61,11 @@ public class Day01 {
 				increments ++;
 			
 			prev = curr;
-			
-			
 		}
-		System.out.println("Day01 second Increments: " + increments);
+		
+		result = increments;
+		reader.close();
+		super.second();
 		//1257
 	}
 	

@@ -1,22 +1,24 @@
 package de.theholyexception;
 
-import java.io.File;
-
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-
-import de.theholyexception.days.Day01;
-import de.theholyexception.days.Day02;
-import de.theholyexception.days.Day03;
-import de.theholyexception.days.Day04;
-
 public class AdventOfCode {
 	
 	public static void main(String[] args) throws Exception {
-		new Day01(new File("./inputs/day01.txt")); // 1228 	- 1257
-		new Day02(new File("./inputs/day02.txt")); // 1692075 	- 1749524700
-		new Day03(new File("./inputs/day03.txt")); // 1071734 	- 6124992
-		new Day04(new File("./inputs/day04.txt")); // 65325 	- 4624
+		
+
+		new de.theholyexception.days2015.Day01();
+		new de.theholyexception.days2015.Day02();
+		new de.theholyexception.days2015.Day03();
+//		new de.theholyexception.days2015.Day04();  //TO LAGGY because bruteforce
+		new de.theholyexception.days2015.Day05();
+		
+		
+		
+		//2021
+		new de.theholyexception.days2021.Day01(); // 1228 	- 1257
+		new de.theholyexception.days2021.Day02(); // 1692075 	- 1749524700
+		new de.theholyexception.days2021.Day03(); // 1071734 	- 6124992
+		new de.theholyexception.days2021.Day04(); // 65325 	- 4624
+		 
 	}
 	
 

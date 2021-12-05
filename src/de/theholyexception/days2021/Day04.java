@@ -1,28 +1,23 @@
-package de.theholyexception.days;
+package de.theholyexception.days2021;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day04 {
+import de.theholyexception.DayTemplate;
+
+public class Day04 extends DayTemplate {
 	
-	private File file;
-	
-	public Day04(File file) throws Exception {
-		this.file = file;
-		first();
-		Board.boardIDS = 1;
-		second();
+	public Day04() throws Exception {
+		super(2021, "04");
 	}
-	
+
+	@Override
 	public void first() throws Exception {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-		
-		int result = 0;	
-		
+				
 		String[] numbersToDrawn = reader.readLine().split(",");
 		List<Board> boards = readBoards(reader);
 
@@ -37,16 +32,17 @@ public class Day04 {
 				break;
 			}
 		}
-		
-		System.out.println("Day04 first result: " + result);
+
+		reader.close();
+		super.first();
 		//65325
 	}
-	
-	public void second() throws Exception {		
+
+	@Override
+	public void second() throws Exception {
+		Board.boardIDS = 1;
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-		
-		int result = 0;
-		
+				
 		String[] numbersToDrawn = reader.readLine().split(",");		
 		List<Board> boards = readBoards(reader);
 
@@ -66,13 +62,15 @@ public class Day04 {
 			boards.removeAll(winners);
 		}
 		
-		result = lastwinner.getRemainingSum() * lastDrawnNumber;		
-		System.out.println("Day04 second result: " + result);
+		result = lastwinner.getRemainingSum() * lastDrawnNumber;
+		reader.close();
+		super.second();
 		//4624
 	}
 	
 	private List<Board> readBoards(BufferedReader reader) throws Exception {
 		List<Board> boards = new ArrayList<>();
+		@SuppressWarnings("unused")
 		String line = null;
 		while((line = reader.readLine()) != null) { //1st readline removes empty header			
 			int[][] numbers = new int[5][5];
@@ -91,6 +89,7 @@ public class Day04 {
 	private class Board {
 		
 		static int boardIDS = 1;
+		@SuppressWarnings("unused")
 		int boardID = -1;
 		private int[][] dataset;
 		private boolean[][] marks = new boolean[5][5];

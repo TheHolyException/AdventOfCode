@@ -1,26 +1,22 @@
-package de.theholyexception.days;
+package de.theholyexception.days2021;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
-public class Day02 {
+import de.theholyexception.DayTemplate;
 
-
-	private File file;
+public class Day02 extends DayTemplate {
 	
-	public Day02(File file) throws Exception {
-		this.file = file;
-		first();
-		second();
+	public Day02() throws Exception {
+		super(2021, "02");
 	}
-	
+
+	@Override
 	public void first() throws Exception {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
 		
 		String line = null;
-		int result = 0;
 		
 		int posHorizontal = 0;
 		int depth = 0;
@@ -52,15 +48,15 @@ public class Day02 {
 			
 		}
 		
-		System.out.println("Day02 first result: " + result);
-		//1692075
+		reader.close();
+		super.first();
 	}
-	
+
+	@Override
 	public void second() throws Exception {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
 		
 		String line = null;
-		int result = 0;
 		
 		int posHorizontal = 0;
 		int depth = 0;
@@ -93,7 +89,9 @@ public class Day02 {
 			result = posHorizontal * depth;
 			
 		}
-		System.out.println("Day02 second result: " + result);
+
+		reader.close();
+		super.second();
 		//1749524700
 	}
 	
