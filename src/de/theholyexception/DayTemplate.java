@@ -8,6 +8,8 @@ public abstract class DayTemplate {
 	protected int year;
 	protected String day;
 	protected int result;
+	protected int firstResult;
+	protected int secondResult;
 	
 	public DayTemplate(int year, String day) throws Exception {
 		this.year = year;
@@ -16,8 +18,10 @@ public abstract class DayTemplate {
 		
 		result = 0;
 		first();
+		firstResult = result;
 		result = 0;
 		second();
+		secondResult = result;
 	}
 	
 	public void first() throws Exception {
